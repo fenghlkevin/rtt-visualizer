@@ -1,0 +1,48 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+  <id>rtt-visualizer</id>
+  <formats>
+      <format>tar.gz</format>
+  </formats>
+  <fileSets>
+      <fileSet>
+          <directory>${project.build.directory}</directory>
+          <outputDirectory>/</outputDirectory>
+          <includes>
+              <include>*.war</include>
+          </includes>
+      </fileSet>
+     <fileSet>
+          <directory>${project.build.directory}/rtt-visualizer/WEB-INF/conf</directory>
+          <outputDirectory>/conf/</outputDirectory>
+          <excludes>
+          	<exclude>*.sh</exclude>
+          	<exclude>*.txt</exclude>
+          </excludes>
+      </fileSet>
+       <fileSet>
+          <directory>${project.build.directory}/rtt-visualizer/WEB-INF/conf</directory>
+          <outputDirectory>/</outputDirectory>
+          <includes>
+              <include>*.sh</include>
+              <include>*.txt</include>
+          </includes>
+      </fileSet>
+      <fileSet>
+          <directory>${project.build.directory}/rtt-visualizer/WEB-INF/classes/resources/</directory>
+          <outputDirectory>/resources/</outputDirectory>
+         <!--  <includes>
+              <include>*.txt</include>
+          </includes> -->
+      </fileSet>
+      <fileSet>
+          <directory></directory>
+          <outputDirectory>/</outputDirectory>
+          <includes>
+              <include>pom.xml</include>
+          </includes>
+      </fileSet>
+  </fileSets>
+  <baseDirectory>${project.build.finalName}</baseDirectory><!-- -${project.version} -->
+ </assembly>
