@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:javaee="http://java.sun.com/xml/ns/javaee"
+xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+
+	<mime-mapping>
+		<extension>tpg</extension>
+		<mime-type>application/octet-stream</mime-type>
+	</mime-mapping>
+
+	<context-param>  
+        <param-name>webAppRootKey</param-name>          
+        <param-value>webapp.visualizer</param-value>  
+    </context-param>
+    
+    <context-param>  
+        <param-name>log4jExposeWebAppRoot</param-name>          
+        <param-value>false</param-value>  
+    </context-param>
+    
+    <context-param>
+		<param-name>rootConfig</param-name>
+<!-- 		<param-value>/home/fengheliang/tools/workbench/workspace/project/rtt-visualizer/src/main/webapp/WEB-INF/conf/RootConfig.properties</param-value> 
+ -->		<param-value>/data/rtt-visualizer/conf/RootConfig.properties</param-value>
+	</context-param>
+	
+    	<!-- 加载RootConfig -->
+	<listener>
+		<listener-class>cn.com.cennavi.kfgis.framework.listener.SystemContextListener</listener-class>
+	</listener>
+	
+	<!-- 加载Log4j -->
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+
+	<!-- 加载spring的bean配置 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- 加载数据库配置项等信息 -->
+	<listener>
+		<listener-class>cn.com.cennavi.kfgis.framework.listener.ConfigureContextListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>cn.com.cennavi.kfgis.framework.springproxy.SpringBeanInitListener</listener-class>
+	</listener>
+	
+	<!-- 加载 couchbase -->
+	<!-- <listener>
+		<listener-class>cn.com.cennavi.kfgis.framework.couchbase.CouchBaseListener</listener-class>
+	</listener> -->
+	
+	<!-- 加载kafka对象 -->
+	<!-- <listener>
+		<listener-class>com.iestudio.framework.logwriter.listener.Kafka072ContextListener</listener-class>
+	</listener> -->
+
+	<!-- 字符集 过滤器 -->
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>rest</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>rest</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	 <servlet>
+        <servlet-name>SpringBeanInitServlet</servlet-name>
+        <servlet-class>cn.com.cennavi.kfgis.framework.springproxy.SpringBeanInitServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+	 </servlet>
+	 
+	<session-config>
+		<session-timeout>20</session-timeout>
+	</session-config>
+	
+	<welcome-file-list>
+		<welcome-file>view/html/index.html</welcome-file>
+	</welcome-file-list>
+
+</web-app>  

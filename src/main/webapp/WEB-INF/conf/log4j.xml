@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration debug="false" xmlns:log4j="http://jakarta.apache.org/log4j/">
+	
+	<!-- request/response Info Receiver -->
+	<appender name="requestlog" class="com.iestudio.framework.logwriter.appender.RollingTimerMoveFileAppender">
+		<param name="fileFormat" value="[RequestLog_]%%(Date#yyyyMMdd)%%[.log]" />
+		<param name="Append" value="true" />
+		<param name="DateSwitch" value="0 0 0 * * ?" />
+		<param name="MaxCount" value="-1" />
+		<param name="maxFileSize" value="-1" />
+		<param name="logPath" value="${request_logpath}" />
+		<param name="targetPath" value="${request_targetpath}" />
+		<param name="File" value="noValue" />
+		<param name="encoding" value="${logencoding}" />
+		<layout class="com.iestudio.framework.logwriter.layout.AssemblyLogItemLayout">
+			<param name="format" value="%%[VisitHistory:]%%Date#yyyyMMddHHmmss%%[#]%%REQUESTID%%[#]%%REQUESTTIME%%[#]%%RESPONSETIME%%[#]%%SUCCESSFLAG%%[#]%%ENTYPE%%[#]%%ENREQUESTTIME%%[#]%%ENRESPONSETIME%%[#]%%IPADDR%%[#]%%ENCODEID%%[#]%%URI%%[#]%%Class: com.iestudio.framework.logwriter.logitem.encoder.HexEncoder#REQUESTBODY%%[#]%%EXCEPTIONCO%%[#]%%USERID%%[#]%%BIZCODE%%[#]%%ACODE%%" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="levelMax" value="INFO" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	
+	<!-- kafka request Receiver -->
+	<!-- <appender name="requestlog-kafka" class="com.iestudio.framework.logwriter.appender.KafkaAppender072">
+	    <param name="DateSwitch" value="0 */1 * * * ?" />
+		<param name="batchSize" value="500" />
+		<param name="threadPeriod" value="2000" />
+		<param name="hbPools" value="2" />
+		<param name="zookeeper_quorum" value="${zookeeper_quorum}" />
+		<param name="topic" value="${kafka.req.topic}" />
+		<param name="encoding" value="${logencoding}" />
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="levelMax" value="INFO" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender> -->
+	
+	<!-- request/response Info Receiver -->
+	<appender name="responselog" class="com.iestudio.framework.logwriter.appender.RollingTimerMoveFileAppender">
+		<param name="fileFormat" value="[ResponseLog_]%%(Date#yyyyMMdd)%%[.log]" />
+		<param name="Append" value="true" />
+		<param name="DateSwitch" value="0 0 0 * * ?" />
+		<param name="MaxCount" value="-1" />
+		<param name="maxFileSize" value="-1" />
+		<param name="logPath" value="${response_logpath}" />
+		<param name="targetPath" value="${response_targetpath}" />
+		<param name="File" value="noValue" />
+		<param name="encoding" value="${logencoding}" />
+		<layout class="com.iestudio.framework.logwriter.layout.AssemblyLogItemLayout">
+			<param name="format" value="%%[VisitHistory:]%%Date#yyyyMMddHHmmss%%[#]%%REQUESTID%%[#]%%RESPONSEHEADER%%[#]%%RESPONSE" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="levelMax" value="INFO" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	
+	<!-- kafka request Receiver -->
+	<!-- <appender name="responselog-kafka" class="com.iestudio.framework.logwriter.appender.KafkaAppender072">
+	    <param name="DateSwitch" value="0 */1 * * * ?" />
+		<param name="batchSize" value="500" />
+		<param name="threadPeriod" value="2000" />
+		<param name="hbPools" value="2" />
+		<param name="zookeeper_quorum" value="${zookeeper_quorum}" />
+		<param name="topic" value="${kafka.res.topic}" />
+		<param name="encoding" value="${logencoding}" />
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="levelMax" value="INFO" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender> -->
+
+	<!-- Console Receiver to File && Module Debug template -->
+	<appender name="org.apache.log4j.ConsoleAppender.file" class="com.iestudio.framework.logwriter.appender.RollingTimerMoveFileAppender">
+		<param name="fileFormat" value="[GIS_CONSOLE_]%%(Date#yyyyMMdd)%%[_]%%(Date#HH)%%[.LOG]" />
+		<param name="Append" value="true" />
+		<param name="DateSwitch" value="0 0 */1 * * ?" />
+		<param name="MaxCount" value="-1" />
+		<param name="maxFileSize" value="-1" />
+		<param name="logPath" value="${console_logpath}" />
+		<param name="targetPath" value="${console_targetpath}" />
+		<param name="File" value="noValue" />
+		<param name="encoding" value="${logencoding}" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="#|%d{yyyy-MM-dd HH:mm:ss}|%p|rtt-visualizer v1.0.0|%m|ThreadName:[%t] %n" />
+		</layout>
+		<filter class="com.iestudio.framework.logwriter.filter.PackageFilter">
+		<param name="filteringPackage" value="serviceReslog" />
+			<param name="filteringPackage" value="servicelog" />
+			<param name="filteringPackage" value="serviceErrlog" />
+			<param name="filteringPackage" value="serviceSucclog" />
+		    <param name="filteringPackage" value="cachelogger" />
+			<param name="filteringPackage" value="cn.com.cennavi.mib2.service" />
+			<!-- <param name="filteringPackage" value="org.springframework" /> -->
+			<param name="filteringPackage" value="cn.com.cennavi.kfgis.framework.interceptor.Perf4jInterceptor" />
+		</filter>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="${console_levelMin}" />
+			<param name="levelMax" value="${console_levelMax}" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+
+	<!-- Console Receiver -->
+	<appender name="org.apache.log4j.ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="#|%d{yyyy-MM-dd HH:mm:ss}|%p|rtt-visualizer v1.0.0|%m|ThreadName:[%t] %n" />
+		</layout>
+		<filter class="com.iestudio.framework.logwriter.filter.PackageFilter">
+		<param name="filteringPackage" value="serviceReslog" />
+			<param name="filteringPackage" value="servicelog" />
+			<param name="filteringPackage" value="serviceErrlog" />
+			<param name="filteringPackage" value="serviceSucclog" />
+		   <param name="filteringPackage" value="cachelogger" />
+			<param name="filteringPackage" value="cn.com.cennavi.mib2.service" />
+			<!-- <param name="filteringPackage" value="org.springframework" /> -->
+			<param name="filteringPackage" value="cn.com.cennavi.kfgis.framework.interceptor.Perf4jInterceptor" />
+		</filter>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="${console_levelMin}" />
+			<param name="levelMax" value="${console_levelMax}" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+
+	<!-- System perf4j to File && Module perf4j template -->
+	<!-- <appender name="org.apache.log4j.ConsoleAppender.file.perf4j" class="com.iestudio.framework.logwriter.appender.RollingTimerMoveFileAppender">
+		<param name="fileFormat" value="[GIS_PERF4J_]%%(Date#yyyyMMdd)%%[_]%%(Date#HH)%%[.LOG]" />
+		<param name="Append" value="true" />
+		<param name="DateSwitch" value="0 0 */1 * * ?" />
+		<param name="MaxCount" value="-1" />
+		<param name="maxFileSize" value="-1" />
+		<param name="logPath" value="${perf4j_logpath}" />
+		<param name="targetPath" value="${perf4j_targetpath}" />
+		<param name="File" value="noValue" />
+		<param name="encoding" value="${logencoding}" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n" />
+		</layout>
+	</appender> -->
+	
+	
+	<!-- response log -->
+	<logger name="serviceReslog">
+		<level value="${response_outputlevel}" />
+		<appender-ref ref="responselog" />
+		<!-- <appender-ref ref="responselog-kafka" /> -->
+	</logger>
+	
+	<!-- service Info Level :logging request AND service flow infomation-->
+	<logger name="servicelog">
+		<level value="${service_outputlevel}" />
+		<appender-ref ref="requestlog" />
+		<!-- <appender-ref ref="requestlog-kafka" /> -->
+	</logger>
+
+	<!-- module debug log -->
+	<logger name="cn.com.cennavi.mib2">
+		<level value="${debug_outputlevel}" />
+	</logger>
+
+	<!-- <logger name="cn.com.cennavi.kfgis.framework.interceptor.Perf4jInterceptor">
+		<level value="${perf4j_outputlevel}" />
+		<appender-ref ref="org.apache.log4j.ConsoleAppender.file.perf4j" />
+	</logger> -->
+	<!-- root Level -->
+	<root>
+		<level value="${root_outputlevel}" />
+		<appender-ref ref="org.apache.log4j.ConsoleAppender" />
+		<!-- org.apache.log4j.ConsoleAppender.file 为系统日志输出 控制台信息，暂时不能输出System.out,以及 System.err -->
+		<appender-ref ref="org.apache.log4j.ConsoleAppender.file" />
+	</root>
+
+</log4j:configuration>
