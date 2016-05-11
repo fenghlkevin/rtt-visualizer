@@ -1,0 +1,18 @@
+#mib2_map,#daimler_map,#decode_map,#createfile_map,#createfile_step3_map, #allmap {
+	height: 550px;
+	overflow: hidden;
+	margin: 0;
+	font-family: "微软雅黑";
+}
+#dataanalysis_map {
+	height: 500px;
+	overflow: hidden;
+	margin: 0;
+	font-family: "微软雅黑";
+}
+
+#event::-webkit-input-placeholder:after{
+  display:block;
+  content:"\A   {[cause array]}\Ajson:\A   cause:(keyList:maincause,warningLevel,\A   subCause,lengthAffected,\A   laneRestrictionType,numberOfLanes)"
+};
+
