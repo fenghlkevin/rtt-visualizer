@@ -1,0 +1,44 @@
+
+<form id="parser_step2_page_div" class="form-horizontal">
+	<div class="form-group">
+		<p class="text-right col-sm-12">
+			step 1 of 2
+			<button type="button" class="btn btn-default " id="last">BACK HOME</button>
+		</p>
+	</div>
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-4 control-label span1">DO YOU KNOW THE TARGET ROAD? </label>
+		<div class="col-md-4">
+			<label class="btn btn-primary active"> <input type="radio" name="know[]" id="know1" autocomplete="off" value="no" >NO
+			</label> <label class="btn btn-primary"> <input type="radio" name="know[]" id="know2" autocomplete="off" value="yes" > YES
+			</label>
+		</div>
+	</div>
+	<div id="yesdiv" class="form-group">
+		<label for="inputEmail3" class="col-md-4 control-label span1">INPUT ROAD LINKS</label>
+		<div class="col-md-4">
+			<textarea id="linkids" class="form-control" rows="8" placeholder=""></textarea>
+		</div>
+	</div>
+	<div id="nodiv" class="form-group">
+	<label for="inputEmail3" class="col-md-1 control-label"></label>
+		<div class="col-md-9">
+			<div id="dataanalysis_map" ></div>
+		</div>
+	</div>
+
+
+</form>
+
+
+<script type="text/javascript">
+	$(function() {
+		var thispage = $("#parser_step2_page_div");
+		thispage.find("button[id='next']").click(next_click_transverse("step2", "data_analysis/cntf/cntf_step1.html", 1));
+		thispage.find("button[id='last']").click(last_click("index_menu", "parser_step1_container"));
+
+		do_dataanalysis_pageload(thispage);
+	
+		
+	});
+</script>

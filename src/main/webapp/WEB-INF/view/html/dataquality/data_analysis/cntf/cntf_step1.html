@@ -1,0 +1,75 @@
+
+<form id="parser_step1_page_div" class="form-horizontal">
+	<div class="form-group">
+		<p class="text-right col-sm-12">
+			<strong>CHOOSE RTT DATA INFOMATION</strong>
+			<button type="button" class="btn btn-default " id="last">BACK HOME</button>
+		</p>
+	</div>
+
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label span1">MAP VERSION</label>
+		<div class="col-md-4">
+			<select class="form-control" id="olr_map_version">
+				<option value="13_q4_g">13_q4_g</option>
+				<option value="14_q2_g" selected>14_q2_g</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="messageGenerationTime" class="col-sm-2 control-label span1">TIME LIMIT START</label>
+		<div class="col-sm-4">
+			<div class="input-append date" id="dp1" data-date-format="mm-dd-yyyy hh:ii">
+				<input id="timelimit_start" size="32" type="text" readonly> <span class="add-on"><i class="icon-th"></i></span>
+			</div>
+		</div>
+		<label for="messageGenerationTime" class="col-sm-2 control-label">TIME LIMIT STOP</label>
+		<div class="col-sm-4">
+			<div class="input-append date" id="dp2" data-date-format="mm-dd-yyyy hh:ii">
+				<input id="timelimit_stop" size="32" type="text" readonly> <span class="add-on"><i class="icon-th"></i></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<p class="text-right col-sm-12">
+			<button type="button" class="btn btn-default" id="next">NEXT STEP</button>
+		</p>
+	</div>
+
+</form>
+
+
+<script type="text/javascript">
+	$(function() {
+		var thispage = $("#parser_step1_page_div");
+		thispage.find("button[id='next']").click(next_click_transverse("step2", "data_analysis/cntf/cntf_step2.html", 1));
+		thispage.find("button[id='last']").click(last_click("index_menu", "parser_step1_container"));
+		
+		var stime= util_getNowTime();
+		var etime=util_getNowTime(10);
+		thispage.find("#dp1").datetimepicker({
+			weekStart : 0,
+			todayBtn : true,
+			autoclose : true,
+			todayHighlight : 1,
+			startView : 2,
+			showMeridian : true,
+			initialDate : stime,
+		});
+		
+		thispage.find("#dp2").datetimepicker({
+			weekStart : 0,
+			todayBtn : true,
+			autoclose : true,
+			todayHighlight : 1,
+			startView : 2,
+			showMeridian : true,
+			initialDate : etime,
+		});
+		
+		thispage.find("#timelimit_start").val(stime);
+		thispage.find("#timelimit_stop").val(etime);
+	});
+</script>

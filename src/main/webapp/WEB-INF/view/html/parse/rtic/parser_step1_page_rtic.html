@@ -1,0 +1,73 @@
+
+<script type="text/javascript">
+	$(function() {
+		var thispage = $("#parser_step1_page_div");
+		thispage.find("button[id='next']").click(next_click("parser_step2_container", "parse/parser_step2_page.html", 'parser_step1_container', function_2_step2_decode_rtic));
+		thispage.find("button[id='last']").click(last_click("index_menu", "parser_step1_container"));
+		thispage.find("input[id='file_input']").change(fileSelect);
+		thispage.find("#olr_map_version").hide();
+		thispage.find("#parse_method").hide();
+	});
+</script>
+<form id="parser_step1_page_div" class="form-horizontal">
+	<div class="form-group">
+		<p class="text-right col-sm-12">
+			step 1 of 2
+			<button type="button" class="btn btn-default " id="last">BACK HOME</button>
+		</p>
+	</div>
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">RTIC VERSION</label>
+		<div class="col-md-10">
+			<select class="form-control" id="lpinfo_version">
+				<!-- <option value="11_q2_k">11_q2_k</option>
+				<option value="12_q2_k">12_q2_k</option>
+				<option value="13_q2_k" >13_q2_k</option> -->
+				<option value="14_q2_g" selected>14_q2_g</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">RTIC MAP VERSION</label>
+		<div class="col-md-10">
+			<select class="form-control" id="tmc_map_version">
+				<!-- <option value="11_q2_k">11_q2_k</option>
+				<option value="12_q2_k">12_q2_k</option>
+				<option value="13_q2_k" >13_q2_k</option> -->
+				<option value="14_q2_g" selected>14_q2_g</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">RTIC CSV</label>
+		<div class="col-md-10">
+			<input id="file_input" type="file" class="form-control " accept="tpg">
+			<p class="help-block">PUT RTICFile FILE TO HERE</p>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">RTIC DATA INFO(HEXADECIMAL)</label>
+		<div class="col-md-10">
+			<textarea class="form-control" rows="8" readonly id="file_value"></textarea>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<p class="text-right col-sm-12">
+			<button type="button" class="btn btn-default" id="next">NEXT STEP</button>
+		</p>
+	</div>
+
+	<div id="treeview"></div>
+	<select class="form-control" id="olr_map_version">
+		<option value="13_q4_g">13_q4_g</option>
+		<option value="14_q2_g" selected>14_q2_g</option>
+	</select>
+	<select class="form-control" id="parse_method">
+				<option value="true" >true</option>
+				<option value="false" selected>false</option>
+	</select>
+	
+</form>

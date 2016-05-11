@@ -1,0 +1,65 @@
+<!-- <style type="text/css">
+#allmap {
+	height: 550px;
+	overflow: hidden;
+	margin: 0;
+	font-family: "微软雅黑";
+}
+</style> -->
+<!-- <script type="text/javascript" src="../js/project/createfile_step1_page.js"></script>
+ -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		var thispage = $("#createfile_step2_page_div");
+		thispage.find("button[id='next']").click(function_to_step3_createfile);
+		thispage.find("button[id='last']").click(last_click("createfile_step1_container", "createfile_step2_container"));
+		//thispage.find("div[id='temp_messageid']").hide();
+	});
+</script>
+<form id="createfile_step2_page_div" class="form-horizontal">
+	<!-- <div class="form-group">
+		<p class="text-right col-sm-12">
+			step 2 of 3
+			<button type="button" class="btn btn-default " id="last">BACK HOME</button>
+		</p>
+	</div> -->
+	<div class="form-group ">
+		<div id="createfile_map" class="col-sm-8"></div>
+		<div id="right" class="col-sm-4">
+			<div class="form-group">
+				<p class="text-right col-sm-12">
+					step 2 of 3
+					<button type="button" class="btn btn-default " id="last">BACK HOME</button>
+				</p>
+			</div>
+			<table id="createfile_btable" data-click-to-select="false" data-height="200" style="display: none">
+				<!-- data-show-columns="true" -->
+				<thead>
+					<tr>
+						<th data-field="state" data-checkbox="true"></th>
+						<th data-field="messageid" data-id-field="true">message id</th>
+						<th data-field="message_type">message type</th>
+						<th data-field="lrc_type">lrc type</th>
+						<th data-field="message" data-visible="false"></th>
+						<th data-field="shape" data-visible="false"></th>
+						<th data-field="error" data-visible="false"></th>
+						<th data-field="overlay" data-visible="false"></th>
+					</tr>
+				</thead>
+			</table>
+			<div class="col-xs-6">
+				<input type="text" class="form-control input-sm col-xs-6" placeholder="messageid" id="messageid_input">
+			</div>
+			<div id="pop"></div>
+			<div id="mmcpop"></div>
+		</div>
+	</div>
+	<div class="form-group">
+		<p class="text-right">
+			<button type="button" class="btn btn-default" id="next">SAVE TO FILE</button>
+		</p>
+	</div>
+	<input type="text" class="hidden" placeholder="" id="temp_messageid_input">
+
+
+</form>

@@ -1,0 +1,91 @@
+<script type="text/javascript">
+	$(function() {
+		var thispage=$("#simulate_step1_page_div");
+		thispage.find("button[id='next']").click(next_click("simulate_mib2_container2", "simulateRequest/getmessage_mib2_page2.html", 'simulate_mib2_container1', function_to_step2_simulate_mib2));
+		thispage.find("button[id='last']").click(last_click("index_menu", "simulate_mib2_container1"));
+		thispage.find("button[id='initSession_mib2']").click(initSession_mib2)
+	});
+</script>
+<form id="simulate_step1_page_div" class="form-horizontal">
+	<div class="form-group">
+		<label class="col-md-3 control-label"><h4>MIB2 InitSession</h4></label>
+		<p class="text-right col-sm-9">
+			step 1 of 2
+			<button type="button" class="btn btn-default " id="last">BACK HOME</button>
+		</p>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">LPINFO_VERSION</label>
+		<div class="col-md-4">
+			<select class="form-control" id="lpinfo_version">
+				<option value="13_q2_k" >13_q2_k</option>
+				<option value="14_q2_g" selected>14_q2_g</option>
+			</select>
+		</div>
+		<label class="col-md-2 control-label">TMC_MAP_VERSION</label>
+		<div class="col-md-4">
+			<select class="form-control" id="tmc_map_version">
+				<option value="13_q2_k" >13_q2_k</option>
+				<option value="14_q2_g" selected>14_q2_g</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">OLR MAP VERSION</label>
+		<div class="col-md-4">
+			<select class="form-control" id="olr_map_version">
+				<option value="13_q4_g" selected>13_q4_g</option>
+				<option value="14_q2_g">14_q2_g</option>
+			</select>
+		</div>
+		<label for="inputEmail3" class="col-md-2 control-label">DEBUG SHOW</label>
+		<div class="col-md-4">
+			<select class="form-control" id="parse_method">
+				<option value="true" >true</option>
+				<option value="false" selected>false</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">MIN_RADIUS(m)</label>
+		<div class="col-md-4">
+			<input id="minRadius" type="text" class="form-control" value="30000">
+		</div>
+		<label class="col-md-2 control-label">MID_RADIUS(m)</label>
+		<div class="col-md-4">
+			<input id="midRadius" type="text" class="form-control" value="100000">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">MAX_RADIUS(m)</label>
+		<div class="col-md-4">
+			<input id="maxRadius" type="text" class="form-control" value="200000">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">SERVICE_URL</label>
+		<div class="col-md-10">
+			<input id="serviceUrl" type="text" class="form-control" value="http://mib2.trafficeye.com.cn:8080/traffic-online/initSession">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="text-right col-sm-12">
+			<button type="button" class="btn btn-primary" id="initSession_mib2">INIT SESSION</button>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-md-2 control-label">SESSION_ID</label>
+		<div class="col-md-10">
+			<input id="sessionId" type="text" class="form-control" readonly>
+		</div>
+	</div>
+	<input id="getMessageUrl" type="hidden" class="form-control">
+	<input id="serviceType" type="hidden" class="form-control" value="mib2">
+	<div class="form-group">
+		<p class="text-right col-sm-12">
+			<button type="button" class="btn btn-default" id="next" disabled>NEXT STEP</button>
+		</p>
+	</div>
+	
+</form>

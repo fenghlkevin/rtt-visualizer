@@ -1,0 +1,61 @@
+<!-- Modal -->
+<div class="modal fade bs-example-modal-lg"  id="causeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">MainCause Editor</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="mainCause" class="col-sm-2 control-label">CauseCode</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" placeholder="1~27" id="causecode_input">
+					</div>
+					<label for="warningLevel" class="col-sm-2 control-label">WarningLevel</label>
+					<div class="col-sm-4">
+						<select class="form-control" id="warninglevel_select">
+							<option value="001">001:informative</option>
+							<option value="002">002:danger level 1</option>
+							<option value="003">003:danger level 2</option>
+							<option value="004">004:danger level 3</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="subCause" class="col-sm-2 control-label">subCause</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" placeholder="101~131" id="subcause_input">
+					</div>
+					<label for="lengthAffected" class="col-sm-2 control-label">lengthAffected</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" placeholder="lengaffected number" id="lengaffected_input">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="LaneRestrictionType" class="col-sm-5 control-label">LaneRestrictionType</label>
+					<div class="col-sm-7">
+						<select class="form-control" id="lanerestrictiontype_select">
+							<option value="001">001:lane(s) closed</option>
+							<option value="002">002:lane(s) open</option>
+							<option value="003">003:right lane(s) closed</option>
+							<option value="004">004:left lane(s) closed</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="numberOfLanes" class="col-sm-5 control-label">numberOfLanes</label>
+					<div class="col-sm-7">
+						<input type="text" class="form-control" placeholder="numberOfLanes number" id="numberoflanes_input">
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>

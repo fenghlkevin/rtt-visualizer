@@ -1,0 +1,61 @@
+<!-- Modal -->
+<div class="modal fade bs-example-modal-lg" id="mmcModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Parameters Editor</h4>
+			</div>
+			<div class="modal-body">
+				
+				<div class="form-group">
+					<label for="versionID" class="col-sm-2 control-label">Start Time(TFP only)</label>
+					<div class="col-sm-4">
+						<div class="input-append date" id="st1"  data-date-format="mm-dd-yyyy hh:ii">
+							<input id="starttime" size="16" type="text" readonly> <span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</div>
+					<!-- <label for="warningLevel" class="col-sm-2 control-label">Stop Time(TFP only)</label>
+					<div class="col-sm-4">
+						<div class="input-append date" id="st2"  data-date-format="mm-dd-yyyy hh:ii">
+							<input id="stoptime" size="16" type="text" readonly> <span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</div> -->
+				</div>
+			
+				<div class="form-group">
+					<label for="versionID" class="col-sm-2 control-label">versionID</label>
+					<div class="col-sm-4">
+						<input type="Number" class="form-control" placeholder="0~255" id="versionid">
+					</div>
+					<label for="warningLevel" class="col-sm-2 control-label">message Expiry Time</label>
+					<div class="col-sm-4">
+						<div class="input-append date" id="dp1"  data-date-format="mm-dd-yyyy hh:ii">
+							<input id="messageExpiryTime" size="16" type="text" readonly> <span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="cancelFlag" class="col-sm-2 control-label">cancel Flag</label>
+					<div class="col-sm-4">
+						<select class="form-control" id="cancelflag">
+							<option value="true">true</option>
+							<option value="false" selected>false</option>
+						</select>
+					</div>
+					<label for="messageGenerationTime" class="col-sm-2 control-label">message Generation Time</label>
+					<div class="col-sm-4">
+						<div class="input-append date" id="dp2" data-date-format="mm-dd-yyyy hh:ii">
+							<input id="messageGenerationTime" size="16" type="text" readonly> <span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

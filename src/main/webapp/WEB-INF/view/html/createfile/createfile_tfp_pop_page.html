@@ -1,0 +1,76 @@
+<div>
+
+	<div class="col-sm-12">
+		<div class="form-inline" role="form">
+			<div class="form-group">
+				<button id="addrow" type="button" class="btn btn-default">
+					<i class="glyphicon glyphicon-plus"></i>
+				</button>
+				<input id="mmcbtn" class="btn btn-default" type="button" value="PARAMS">
+				<div class="well well-sm">
+					<p>
+						DISTANCE OF THIS : <span id="length" style="font-weight: bold"></span> SURPLUS : <span id="leftlength" style="font-weight: bold"></span> (Unit:M)
+						
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="form-inline" role="form">
+			<div id="form" class="form-group">
+				<div  id="row">
+					<div class="hidden">
+						<input name="los[]" type="text" value="los.1">
+						<input name="speed[]" type="text" value="sp.60">
+					</div>
+					<input id="setlength" name="length[]" type="number" class="form-control input-sm" placeholder="DISTANCE(Unit:M)" aria-describedby="basic-addon2">
+					<!--  <input id="setspeed" name="speed[]" type="number" class="form-control" placeholder="SPEED" aria-describedby="basic-addon2"> 
+					 <select name="los[]" class="form-control">
+						<option value="1" selected>Los:1</option>
+						<option value="3">Los:3</option>
+						<option value="4">Los:4</option>
+						<option value="5">Los:5</option>
+					</select> -->
+					<select id="ts" name="ts[]" class="multiselect" multiple="multiple" class="form-control">
+						<optgroup label="LOS">
+							<option value="los.1" selected>LOS:1</option>
+							<option value="los.3">LOS:3</option>
+							<option value="los.4">LOS:4</option>
+							<option value="los.5">LOS:5</option>
+						</optgroup>
+						<optgroup label="SPEED">
+							<option value="sp.1">SPEED:1</option>
+							<option value="sp.10">SPEED:10</option>
+							<option value="sp.20">SPEED:20</option>
+							<option value="sp.30">SPEED:30</option>
+							<option value="sp.40">SPEED:40</option>
+							<option value="sp.50">SPEED:50</option>
+							<option value="sp.60" selected>SPEED:60</option>
+							<option value="sp.70">SPEED:70</option>
+							<option value="sp.80">SPEED:80</option>
+							<option value="sp.90">SPEED:90</option>
+							<option value="sp.100">SPEED:100</option>
+							<option value="sp.150">SPEED:150</option>
+							<option value="sp.200">SPEED:200</option>
+							<option value="sp.250">SPEED:250</option>
+							<option value="sp.255">SPEED:255</option>
+						</optgroup>
+					</select>
+					<button id="remove" type="button" class="btn btn-default">
+						<i class="glyphicon glyphicon-trash"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-group form-group-sm col-sm-12">
+		<button id="prev_item" type="button" class="btn btn-default col-sm-2">
+			<i class="glyphicon glyphicon-menu-left"></i>
+		</button>
+		<button id="next_item" type="button" class="btn btn-default col-sm-2">
+			<i class="glyphicon glyphicon-menu-right"></i>
+		</button>
+		<button id="submit" type="button" class="btn btn-default col-sm-2">
+			<i class="glyphicon glyphicon-check"></i>
+		</button>
+	</div>
+</div>

@@ -1,0 +1,59 @@
+<script type="text/javascript">
+	$(function() {
+		var thispage = $("#simulate_step2_page_div");
+		thispage.find("button[id='last']").click(last_click("simulate_step1_container", "simulate_step2_container"));
+	});
+	$("button[id='getMessage']").click(getMessageDailmer);
+	$('#outp').click(do_ouput("getmessage_btable", "base64Result"));
+</script>
+<form id="simulate_step2_page_div" class="form-horizontal">
+	<div class="form-group">
+		<div id="daimler_map" class="col-md-8"></div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<p class="text-right col-sm-12">
+					step 1 of 2
+					<button type="button" class="btn btn-default" id="last">BACK HOME</button>
+				</p>
+			</div>
+			<div class="form-group">
+				<div class="form-inline col-sm-12 text-center">
+					<div class="form-group">
+						<input id="lon" type="text" class="form-control" placeholder="longitude"> <input id="lat" type="text" class="form-control" placeholder="latitude">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="text-right col-sm-12">
+					<button type="button" class="btn btn-default " id="outp" disabled>
+						<i class="glyphicon glyphicon-download-alt"></i>Output
+					</button>
+					<button type="button" class="btn btn-primary" id="getMessage">GET MESSAGE</button>
+				</div>
+			</div>
+			<input id="base64Result" type="hidden" class="form-control">
+			<div class="form-group">
+				<div class="text-right col-sm-12">
+					<table id="getmessage_btable" data-row-style="rowStyle" data-click-to-select="false" data-sort-name="messageid" data-sort-order="desc" data-height="350" data-pagination="true"
+						data-toggle="table" data-click-to-select="true" data-search="true" style="display: none" class="table table-condensed" data-page-list="[10, 25, 50, 100,500,1000,All]">
+						<!-- data-show-columns="true" -->
+						<thead>
+							<tr>
+								<th data-field="state" data-checkbox="true"></th>
+								<th data-field="messageid" data-sortable="true">messageid</th>
+								<th data-field="versionid" data-sortable="true">versionid</th>
+								<th data-field="datatype" data-sortable="true">datatype</th>
+								<th data-field="status" data-visible="false">status</th>
+								<th data-field="message" data-visible="false"></th>
+								<th data-field="shape" data-visible="false"></th>
+								<th data-field="error" data-visible="false"></th>
+								<th data-field="overlay" data-visible="false"></th>
+								<th data-field="treeview" data-visible="false"></th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,95 @@
+<script type="text/javascript">
+	$(function() {
+		var thispage=$("#simulate_step1_page_div");
+		thispage.find("button[id='next']").click(next_click("bmw_container2", "simulateRequest/getmessage_bmw_page2.html", 'bmw_container1', function_to_step2_simulate_daimler));
+		thispage.find("button[id='last']").click(last_click("index_menu", "bmw_container1"));
+		$("#olr_map_version").hide();
+		//thispage.find("button[id='initSession']").click(initSession_renault)
+	});
+</script>
+<form id="simulate_step1_page_div" class="form-horizontal">
+	<div class="form-group">
+		<label class="col-md-3 control-label"><h4>BMW GetMessage</h4></label>
+		<p class="text-right col-sm-9">
+			step 1 of 2
+			<button type="button" class="btn btn-default " id="last">BACK HOME</button>
+		</p>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">LPINFO_VERSION</label>
+		<div class="col-md-4">
+			<select class="form-control" id="lpinfo_version">
+				<option value="11_q2_k">11_q2_k</option>
+				<option value="12_q2_k">12_q2_k</option>
+				<option value="13_q2_k">13_q2_k</option>
+				<option value="14_q2_g" selected>14_q2_g</option>
+			</select>
+		</div>
+		<label class="col-md-2 control-label">TMC_MAP_VERSION</label>
+		<div class="col-md-4">
+			<select class="form-control" id="tmc_map_version">
+				<option value="11_q2_k">11_q2_k</option>
+				<option value="12_q2_k">12_q2_k</option>
+				<option value="13_q2_k">13_q2_k</option>
+				<option value="14_q2_g" selected>14_q2_g</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">DEBUG SHOW</label>
+		<div class="col-md-4">
+			<select class="form-control" id="parse_method">
+				<option value="true" >true</option>
+				<option value="false" selected>false</option>
+			</select>
+		</div>
+		<label class="col-md-2 control-label">Vers</label>
+		<div class="col-md-4">
+			<input id="vers" type="text" class="form-control" value="1405.08.30.00">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">DriveID</label>
+		<div class="col-md-4">
+			<input id="driveid" type="text" class="form-control" value="CNHEFEI12S1">
+		</div>
+		<label class="col-md-2 control-label">TP_Apps</label>
+		<div class="col-md-4">
+			<select class="form-control" id="tp_apps">
+				<option value="TEC-TFP" selected>TEC-TFP</option>
+				<option value="TEC" >TEC</option>
+				<option value="TFP" >TFP</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">SERVICE_URL</label>
+		<div class="col-md-10">
+			<input id="serviceUrl" type="text" class="form-control" value="http://211.151.84.2:8898/bmw/gateway/index.do">
+		</div>
+	</div>
+	<!-- <div class="form-group">
+		<div class="text-right col-sm-12">
+			<button type="button" class="btn btn-primary" id="initSession">INIT SESSION</button>
+		</div>
+	</div> -->
+	
+	<!-- <div class="form-group">
+		<label class="col-md-2 control-label">SESSION_ID</label>
+		<div class="col-md-10">
+			<input id="sessionId" type="text" class="form-control" readonly>
+		</div>
+	</div> -->
+	<input id="getMessageUrl" type="hidden" class="form-control">
+	<select class="form-control" id="olr_map_version" disabled>
+				<option value="13_q4_g" >13_q4_g</option>
+				<option value="14_q2_g" selected>14_q2_g</option>
+			</select>
+	<input id="serviceType" type="hidden" class="form-control" value="bmw">
+	<div class="form-group">
+		<p class="text-right col-sm-12">
+			<button type="button" class="btn btn-default" id="next" >NEXT STEP</button>
+		</p>
+	</div>
+	
+</form>

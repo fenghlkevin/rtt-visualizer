@@ -1,0 +1,97 @@
+
+</style>
+<!-- <script type="text/javascript" src="../js/lib.js"></script>
+<script type="text/javascript" src="../js/project/createfile_step1_page.js"></script> -->
+<div class="form-horizontal">
+
+<input id="mmcbtn" class="btn btn-default" type="button" value="PARAMS">
+	<div class="well well-sm col-sm-12">
+		<!-- <button id="addrow" type="button" class="btn btn-sm btn-default col-sm-2">
+			<i class="glyphicon glyphicon-plus glyphicon"></i>
+		</button> -->
+		<span class="col-sm-12">EVENT INFO</span>
+		<div id="form">
+			<!-- <hr /> -->
+			<!-- <div id="row"> -->
+				<!-- <div class="form-group form-group-sm col-sm-12"> -->
+					<!-- <button id="modalbtn" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#causeModal">Click to Edit ManCause</button> -->
+					<textarea id="event" class="form-control" rows="8" placeholder="data format:"></textarea>
+				<!-- </div> -->
+		<!-- 	</div> -->
+		</div>
+	</div>
+
+	<div class="form-group form-group-sm col-sm-12">
+		<button id="prev_item" type="button" class="btn btn-default col-sm-2">
+			<i class="glyphicon glyphicon-menu-left"></i>
+		</button>
+		<button id="next_item" type="button" class="btn btn-default col-sm-2">
+			<i class="glyphicon glyphicon-menu-right"></i>
+		</button>
+
+		<button id="submit" type="button" class="btn btn-default col-sm-2">
+			<i class="glyphicon glyphicon-check"></i>
+		</button>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="causeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">MainCause Editor</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="mainCause" class="col-sm-2 control-label">CauseCode</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" placeholder="1~27" id="causecode_input" value="1">
+					</div>
+					<label for="warningLevel" class="col-sm-2 control-label">WarningLevel</label>
+					<div class="col-sm-4">
+						<select class="form-control" id="warninglevel_select">
+							<option value="001" selected>001:informative</option>
+							<option value="002">002:danger level 1</option>
+							<option value="003">003:danger level 2</option>
+							<option value="004">004:danger level 3</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="subCause" class="col-sm-2 control-label">subCause</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" placeholder="101~131" id="subcause_input">
+					</div>
+					<label for="lengthAffected" class="col-sm-2 control-label">lengthAffected</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" placeholder="lengaffected number" id="lengaffected_input" value="0">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="LaneRestrictionType" class="col-sm-5 control-label">LaneRestrictionType</label>
+					<div class="col-sm-7">
+						<select class="form-control" id="lanerestrictiontype_select">
+							<option value="001" selected>001:lane(s) closed</option>
+							<option value="002">002:lane(s) open</option>
+							<option value="003">003:right lane(s) closed</option>
+							<option value="004">004:left lane(s) closed</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="numberOfLanes" class="col-sm-5 control-label">numberOfLanes</label>
+					<div class="col-sm-7">
+						<input type="text" class="form-control" placeholder="numberOfLanes number" id="numberoflanes_input">
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>

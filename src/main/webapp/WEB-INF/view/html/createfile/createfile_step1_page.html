@@ -1,0 +1,89 @@
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var thispage=$("#createfile_step1_page_div");
+	thispage.find("button[id='next']").click(next_click("createfile_step2_container", "createfile/createfile_step2_page.html", 'createfile_step1_container',function_to_step2_createfile));
+	thispage.find("button[id='last']").click(last_click("index_menu", "createfile_step1_container"));
+
+	thispage.find('#mt').hide();
+		//$.each($("input[name='lrctype[]']"), function(i,obj){
+		//		$(obj).change(function(){console.log("fsd");});
+		//});
+
+	});
+</script>
+<form id="createfile_step1_page_div"  class="form-horizontal">
+	<div class="form-group">
+		<p class="text-right col-sm-12">
+			step 1 of 2
+			<button type="button" class="btn btn-default " id="last">BACK HOME</button>
+		</p>
+	</div>
+
+	<!-- <div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">选择数据类型</label>
+		<div class="btn-group col-md-10" data-toggle="buttons">
+			<label class="btn btn-success active"> <input name="messagetype[]" type="radio" autocomplete="off" value="tfp" checked> TFP
+			</label> <label class="btn btn-success"> <input name="messagetype[]" type="radio" autocomplete="off" value="tec" > TEC
+			</label>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">类型位置参考类型</label>
+		<div class="btn-group col-md-10" data-toggle="buttons">
+			<label class="btn btn-success active"> <input name="lrctype[]" type="radio" autocomplete="off" value="tmc" checked> TMC
+			</label> <label class="btn btn-success"> <input name="lrctype[]" type="radio" autocomplete="off" value="olr"> OLR
+			</label>
+		</div>
+	</div> -->
+	
+	<div id="mt" class="form-group">
+		 <input type="text" class="form-control" id="messagetype" >
+		  <input type="text" class="form-control" id="lrctype">
+	</div>
+	
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">TMC VERSION</label>
+		<div class="col-md-10">
+			<select class="form-control" id="lpinfo_version">
+				<option value="11_q2_k">11_q2_k</option>
+				<option value="12_q2_k">12_q2_k</option>
+				<option value="13_q2_k" selected>13_q2_k</option>
+				<option value="14_q2_g">14_q2_g</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">TMC MAP VERSION</label>
+		<div class="col-md-10">
+			<select class="form-control" id="tmc_map_version">
+				<option value="11_q2_k">11_q2_k</option>
+				<option value="12_q2_k">12_q2_k</option>
+				<option value="13_q2_k" selected>13_q2_k</option>
+				<option value="14_q2_g">14_q2_g</option>
+			</select>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">OLR MAP VERSION</label>
+		<div class="col-md-10">
+			<select class="form-control" id="olr_map_version">
+				<option value="13_q4_g" selected>13_q4_g</option>
+				<option value="14_q2_g">14_q2_g</option>
+			</select>
+		</div>
+	</div>
+
+	<!-- <div class="form-group">
+		<p class="text-right">
+			<button type="button" class="btn btn-default" id="next">NEXT STEP</button>
+		</p>
+	</div> -->
+	<div class="form-group">
+		<p class="text-right col-sm-12">
+			<button type="button" class="btn btn-default" id="next">NEXT STEP</button>
+		</p>
+	</div>
+</form>

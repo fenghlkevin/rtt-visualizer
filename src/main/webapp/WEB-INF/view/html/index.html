@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+<script type="text/javascript" src="../js/lib.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#menu_parser").click(next_click("parser_step1_container", "parse/parser_step1_page.html", 'index_menu', function() {
+			$("li[class='active']").attr("class", "");
+			$(this).attr("class", "active");
+		}));
+		
+		$("#menu_parser_rtic").click(next_click("parser_step1_container", "parse/rtic/parser_step1_page_rtic.html", 'index_menu', function() {
+			$("li[class='active']").attr("class", "");
+			$(this).attr("class", "active");
+		}));
+
+		$("#menu_createfile").click(next_click("createfile_step1_container", "createfile/createfile_step1_page.html", 'index_menu', function() {
+			$("li[class='active']").attr("class", "");
+			$(this).attr("class", "active");
+		}));
+
+		$("#menu_createfile_userfile").click(next_click("createfile_userfile_step1_container", "createfile/createfile_usefile_step1_page.html", 'index_menu', function() {
+			$("li[class='active']").attr("class", "");
+			$(this).attr("class", "active");
+		}));
+
+		$("#daimler").click(next_click("simulate_step1_container", "simulateRequest/simulate_step1_page.html", 'index_menu', function() {
+			$("li[class='active']").attr("class", "");
+			$(this).attr("class", "active");
+		}));
+
+		$("#mib2").click(next_click("simulate_mib2_container1", "simulateRequest/getmessage_mib2_page1.html", 'index_menu', function() {
+			$("li[class='active']").attr("class", "");
+			$(this).attr("class", "active");
+		}));
+		
+		$("#renault").click(next_click("renault_container1", "simulateRequest/getmessage_renault_page1.html", 'index_menu', function() {
+			$("li[class='active']").attr("class", "");
+			$(this).attr("class", "active");
+		}));
+		
+		$("#bmw").click(next_click("bmw_container1", "simulateRequest/getmessage_bmw_page1.html", 'index_menu', function() {
+			$("li[class='active']").attr("class", "");
+			$(this).attr("class", "active");
+		}));
+	});
+</script>
+<title>RTT-Visualizer</title>
+
+<!-- Custom styles for this template -->
+
+</head>
+
+<body>
+
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-inverse" id="index_menu">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">RTT-Visualizer</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active" id="menu_home"><a href="#">HOME</a></li>
+					<li class="dropdown" id="menu_create"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">SEND REQUEST <span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu" role="menu" id="requestlist">
+							<li id="daimler"><a href="#">Daimler</a></li>
+							<!-- <li class="divider"></li> -->
+							<li id="mib2"><a href="#">MIB2</a></li>
+							<li id="renault"><a href="#">RENAULT</a></li>
+							<li id="bmw"><a href="#">BMW</a></li>
+						</ul></li>
+					<!-- <li id="menu_send"><a href="#about">发送请求</a></li> -->
+					<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">DECODE DATA<span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu" role="menu" id="createstaticfile">
+							<li id="menu_parser"><a href="#">TPEG DATA</a></li>
+							<li class="divider"></li>
+							<li id="menu_parser_rtic"><a href="#">RTIC DATA</a></li>
+						</ul></li>
+					<!-- <li id="menu_createfile"><a href="#">CREATE STATIC DATA FILE</a></li> -->
+					<li class="dropdown" id="menu_create"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CREATE STATIC DATA FILE <span
+							class="caret"></span>
+					</a>
+						<ul class="dropdown-menu" role="menu" id="createstaticfile">
+							<li id="menu_createfile"><a href="#">USE MAP</a></li>
+							<li class="divider"></li>
+							<li id="menu_createfile_userfile"><a href="#">USE FILE</a></li>
+						</ul></li>
+				</ul>
+				<!-- <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">Default</a></li>
+            <li><a href="../navbar-static-top/">Static top</a></li>
+            <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+          </ul> -->
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+
+	<div class="container" id="home_jumbotron">
+		<!-- Main component for a primary marketing message or call to action -->
+		<div class="jumbotron">
+			<h1>RTT-Visualizer</h1>
+			<p>This Porject is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your
+				viewport and device.</p>
+			<p>To see the difference between static and fixed top navbars, just scroll.</p>
+			<p>To see the difference between static and fixed top navbars, just scroll.</p>
+		</div>
+	</div>
+	<!-- /container -->
+	<div class="container" id="home_container">
+		<!-- <div id="parser_file" class="container-fluid">
+			<div class="row" id="parser_step1_container"></div>
+			<hr>
+			<div class="row" id="parser_step2_container"></div>
+		</div> -->
+
+		<!-- <div id="create_file" class="container-fluid">
+			<div class="row" id="createfile_step1_container"></div>
+			<hr>
+			<div class="row" id="createfile_step2_container"></div>
+			<hr>
+			<div class="row" id="createfile_step3_container"></div>
+		</div> -->
+
+		<!-- <div id="simulate_request" class="container-fluid">
+			<div class="row" id="simulate_step1_container"></div>
+			<hr>
+			<div class="row" id="simulate_step2_container"></div>
+		</div> -->
+	</div>
+</body>
+<script type="text/javascript" src="../js/vali.js?"></script>
+<script type="text/javascript">
+	vali();
+</script>
+</html>
+
+

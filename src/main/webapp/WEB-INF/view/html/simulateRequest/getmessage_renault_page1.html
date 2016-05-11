@@ -1,0 +1,135 @@
+<script type="text/javascript">
+	$(function() {
+		var thispage=$("#simulate_step1_page_div");
+		thispage.find("button[id='next']").click(next_click("renault_container2", "simulateRequest/getmessage_renault_page2.html", 'renault_container1', function_to_step2_simulate_daimler));
+		thispage.find("button[id='last']").click(last_click("index_menu", "renault_container1"));
+		thispage.find("button[id='initSession']").click(initSession_renault)
+	});
+</script>
+<form id="simulate_step1_page_div" class="form-horizontal">
+	<div class="form-group">
+		<label class="col-md-3 control-label"><h4>RENAULT InitSession</h4></label>
+		<p class="text-right col-sm-9">
+			step 1 of 2
+			<button type="button" class="btn btn-default " id="last">BACK HOME</button>
+		</p>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">LPINFO_VERSION</label>
+		<div class="col-md-4">
+			<select class="form-control" id="lpinfo_version">
+				<option value="11_q2_k">11_q2_k</option>
+				<option value="12_q2_k">12_q2_k</option>
+				<option value="13_q2_k">13_q2_k</option>
+				<option value="14_q2_g" selected>14_q2_g</option>
+			</select>
+		</div>
+		<label class="col-md-2 control-label">TMC_MAP_VERSION</label>
+		<div class="col-md-4">
+			<select class="form-control" id="tmc_map_version">
+				<option value="11_q2_k">11_q2_k</option>
+				<option value="12_q2_k">12_q2_k</option>
+				<option value="13_q2_k">13_q2_k</option>
+				<option value="14_q2_g" selected>14_q2_g</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">OLR MAP VERSION</label>
+		<div class="col-md-4">
+			<select class="form-control" id="olr_map_version">
+				<option value="13_q4_g" >13_q4_g</option>
+				<option value="14_q2_g" selected>14_q2_g</option>
+			</select>
+		</div>
+		<label for="inputEmail3" class="col-md-2 control-label">DEBUG SHOW</label>
+		<div class="col-md-4">
+			<select class="form-control" id="parse_method">
+				<option value="true" >true</option>
+				<option value="false" selected>false</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">INNER_RADIUS(km)</label>
+		<div class="col-md-4">
+			<input id="innerRadius" type="text" class="form-control" value="10">
+		</div>
+		<label class="col-md-2 control-label">OUTER_RADIUS(km)</label>
+		<div class="col-md-4">
+			<input id="outerRadius" type="text" class="form-control" value="50">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">TMC_PLR</label>
+		<div class="col-md-4">
+			<select class="form-control" id="tmcPlr">
+				<option value="true" selected>true</option>
+				<option value="false">false</option>
+			</select>
+		</div>
+		<label class="col-md-2 control-label">TMC_FREE_FLOW</label>
+		<div class="col-md-4">
+			<select class="form-control" id="tmcFreeFlow">
+				<option value="true" selected>true</option>
+				<option value="false">false</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">maxMessagesTMC</label>
+		<div class="col-md-4">
+			<input id="maxmessagestmc" type="text" class="form-control" value="1500">
+		</div>
+		<label class="col-md-2 control-label">maxMessagesOLR</label>
+		<div class="col-md-4">
+			<input id="maxmessagesolr" type="text" class="form-control" value="500">
+		</div>
+	</div>
+	<div class="form-group">
+		<!-- <label class="col-md-2 control-label">JAMFRONT_WARNING</label>
+		<div class="col-md-4">
+			<select class="form-control" id="jamfrontWarning">
+				<option value="true">true</option>
+				<option value="false" selected>false</option>
+			</select>
+		</div> -->
+		<label class="col-md-2 control-label">deviceID</label>
+		<div class="col-md-4">
+			<input id="deviceID" type="text" class="form-control" value="CAPGDKS000000000000">
+		</div>
+		<label class="col-md-2 control-label">OPENLR</label>
+		<div class="col-md-4">
+			<select class="form-control" id="openlr">
+				<option value="true">true</option>
+				<option value="false" selected>false</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">SERVICE_URL</label>
+		<div class="col-md-10">
+			<input id="serviceUrl" type="text" class="form-control" value="http://211.151.84.2:38080/RenaultTpeg/version1.0/InitSession">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="text-right col-sm-12">
+			<button type="button" class="btn btn-primary" id="initSession">INIT SESSION</button>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-md-2 control-label">SESSION_ID</label>
+		<div class="col-md-10">
+			<input id="sessionId" type="text" class="form-control" readonly>
+		</div>
+	</div>
+	<input id="getMessageUrl" type="hidden" class="form-control">
+	<input id="serviceType" type="hidden" class="form-control" value="renault">
+	<div class="form-group">
+		<p class="text-right col-sm-12">
+			<button type="button" class="btn btn-default" id="next" disabled>NEXT STEP</button>
+		</p>
+	</div>
+	
+</form>

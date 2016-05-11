@@ -1,0 +1,71 @@
+<!-- <style type="text/css">
+#allmap {
+	height: 550px;
+	overflow: hidden;
+	margin: 0;
+	font-family: "微软雅黑";
+}
+</style> -->
+<script type="text/javascript">
+	$(function() {
+		var thispage = $("#parser_step2_page_div");
+		thispage.find("button[id='last']").click(last_click("parser_step1_container", "parser_step2_container"));
+		//thispage.find("button[id='outp']").click(do_ouput("parsedata_btable"));
+		$('#outp').click(do_ouput("parsedata_btable", "file_value"));
+		//$("[data-toggle='popover']").popover();
+	});
+
+	function queryParams() {
+		return {
+			type : 'owner',
+			sort : 'updated',
+			direction : 'desc',
+			per_page : 1,
+			page : 1
+		};
+	}
+</script>
+<form id="parser_step2_page_div" class="form-horizontal">
+	<div class="form-group">
+		<p class="text-right col-sm-12">
+			step 1 of 2
+			<button type="button" class="btn btn-default " id="last">BACK HOME</button>
+		</p>
+	</div>
+	<div class="form-group ">
+		<div id="decode_map" class="col-sm-8"></div>
+		<div class="col-sm-4">
+			<!-- <div id="toolbar">
+		        <button id="outp" class="btn btn-default" disabled>
+		            <i class="glyphicon glyphicon-download-alt"></i>
+		            output
+		        </button>
+		    </div> -->
+			<table id="parsedata_btable" data-row-style="rowStyle" data-click-to-select="false" data-sort-name="messageid" data-sort-order="desc" data-height="500" data-pagination="true"
+				data-page-list="[10, 25, 50, 100,500,1000,All]" data-toggle="table" data-click-to-select="true" data-search="true" data-show-toggle="true" style="display: none">
+				<!-- data-show-columns="true" -->
+				<thead>
+					<tr>
+						<th data-field="state" data-checkbox="true" data-width="5%"></th>
+						<th data-field="messageid" data-sortable="true" data-width="40%">messageid</th>
+						<th data-field="versionid" data-sortable="true" data-width="15%">versionid</th>
+						<th data-field="datatype" data-sortable="true" data-width="30%">datatype</th>
+						<th data-field="status" data-sortable="true" data-width="10%">status</th>
+						<th data-field="message" data-visible="false"></th>
+						<th data-field="shape" data-visible="false"></th>
+						<th data-field="error" data-visible="false"></th>
+						<th data-field="overlay" data-visible="false"></th>
+						<th data-field="treeview" data-visible="false"></th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="form-group">
+			<p class="text-right col-sm-12">
+				<button type="button" class="btn btn-default " id="outp" disabled>
+					<i class="glyphicon glyphicon-download-alt"></i>Output
+				</button>
+			</p>
+		</div>
+	</div>
+</form>

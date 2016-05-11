@@ -1,0 +1,98 @@
+
+<script type="text/javascript">
+	$(function() {
+		var thispage=$("#parser_step1_page_div");
+		thispage.find("button[id='next']").click(next_click("parser_step2_container", "parse/parser_step2_page.html", 'parser_step1_container', function_2_step2_decode_tpeg));
+		thispage.find("button[id='last']").click(last_click("index_menu", "parser_step1_container"));
+		thispage.find("input[id='file_input']").change(fileSelect)
+	});
+</script>
+<form id="parser_step1_page_div" class="form-horizontal">
+	<div class="form-group">
+		<p class="text-right col-sm-12">
+			step 1 of 2
+			<button type="button" class="btn btn-default " id="last">BACK HOME</button>
+		</p>
+	</div>
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">TMC VERSION</label>
+		<div class="col-md-10">
+			<select class="form-control" id="lpinfo_version">
+				<option value="11_q2_k">11_q2_k</option>
+				<option value="12_q2_k">12_q2_k</option>
+				<option value="13_q2_k" selected>13_q2_k</option>
+				<option value="14_q2_g">14_q2_g</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">TMC MAP VERSION</label>
+		<div class="col-md-10">
+			<select class="form-control" id="tmc_map_version">
+				<option value="11_q2_k">11_q2_k</option>
+				<option value="12_q2_k">12_q2_k</option>
+				<option value="13_q2_k" selected>13_q2_k</option>
+				<option value="14_q2_g">14_q2_g</option>
+			</select>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">OLR MAP VERSION</label>
+		<div class="col-md-10">
+			<select class="form-control" id="olr_map_version">
+				<option value="13_q4_g" >13_q4_g</option>
+				<option value="14_q2_g" selected>14_q2_g</option>
+			</select>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">DEBUG SHOW</label>
+		<div class="col-md-10">
+			<select class="form-control" id="parse_method">
+				<option value="true" >true</option>
+				<option value="false" selected>false</option>
+			</select>
+		</div>
+	</div>
+
+	<!-- <div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">选择展示方式</label>
+		<div class="btn-group col-md-10" data-toggle="buttons">
+			<label class="btn btn-success "> <input name="result_viewer[]" type="radio" autocomplete="off" value="bin"> 二进制
+			</label> <label class="btn btn-success active"> <input name="result_viewer[]" type="radio" autocomplete="off" value="to" checked> TMC/OPENLR
+			</label>
+		</div>
+	</div> -->
+
+
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">TPEGBinary</label>
+		<div class="col-md-10">
+			<input id="file_input" type="file" class="form-control " accept="tpg">
+			<p class="help-block">PUT TPEGBinary FILE TO HERE</p>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="inputEmail3" class="col-md-2 control-label">TPEG DATA INFO(HEXADECIMAL)</label>
+		<div class="col-md-10">
+			<textarea class="form-control" rows="8" readonly id="file_value"></textarea>
+		</div>
+	</div>
+
+	<!-- <div class="form-group">
+		<p class="text-right">
+			<button type="button" class="btn btn-default" id="next">NEXT STEP</button>
+		</p>
+	</div> -->
+	<div class="form-group">
+		<p class="text-right col-sm-12">
+			<button type="button" class="btn btn-default" id="next">NEXT STEP</button>
+		</p>
+	</div>
+	
+	<div id="treeview"></div>
+	
+</form>

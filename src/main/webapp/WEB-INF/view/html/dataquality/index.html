@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+<script type="text/javascript" src="/rtt-visualizer/view/js/lib.js"></script>
+<title>Data Quality Debug Service</title>
+</head>
+
+<body>
+	<div id="menu">
+		<div style="width: 200px;">
+			<div class="panel-group" id="accordion2">
+				<div class="panel-heading">
+					<strong style="font-size: 18x;">Data Quality Service</strong>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+						<a class="accordion-toggle">Data Analysis</a>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
+						<div class="panel-body">
+							<ul class="nav nav-pills nav-stacked">
+								<li id="cntf_analysis"><a href="#">TPEG</a></li>
+								<li><a href="#">CNTF</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+						<a class="accordion-toggle">数据库</a>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse" style="height: 0px;">
+						<div class="panel-body">
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">SQL基础</a></li>
+								<li><a href="#">Oracle</a></li>
+								<li><a href="#">MySQL</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+						<a class="accordion-toggle">技术前沿</a>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse" style="height: 0px;">
+						<div class="panel-body">
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">NoSQL</a></li>
+								<li><a href="#">Hadoop</a></li>
+								<li><a href="#">WebService</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="home_container"></div>
+	<script type="text/javascript">
+		$(function() {
+			$('#menu').BootSideMenu({
+				side : "left", // left or right
+				autoClose : false
+			// auto close when page loads
+			});
+			
+			function deldiv(){
+				var all = $("#home_container>div");
+				$.each(all, function(i, div) {
+						$(div).remove();
+				});
+			}
+
+			$("#cntf_analysis").click(next_click_transverse("tpeg_step1", "data_analysis/tpeg/tpeg_step1.html", 0, deldiv));
+
+		});
+	</script>
+</body>
+</html>
+
